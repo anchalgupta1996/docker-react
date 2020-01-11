@@ -1,0 +1,28 @@
+npx create-react-app frontend
+cd frontend
+npm run test
+npm run build
+npm run start
+
+Create Dockerfile.dev
+docker build -f Dockerfile.dev .
+Delete node_modules folder
+docker build -f Dockerfile.dev .
+
+docker run -p 3000:3000 CONTAINER_ID
+
+docker build -f Dockerfile.dev .
+docker run -p 3000:3000 -v /app/node_modules -v ${pwd}:/app CONTAINER_ID
+
+Create docker-compose.yml file
+docker-compose up --build
+
+docker build -f Dockerfile.dev .
+docker run -it CONTAINER_ID npm run test
+
+docker ps
+docker exec -it CONTAINER_ID npm run test
+
+Create Dockerfile
+docker build .
+docker run -p 8080:80 IMAGE_ID
