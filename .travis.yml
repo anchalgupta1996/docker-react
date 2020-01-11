@@ -14,3 +14,23 @@ before_install:
 # Commands to execute to run the Test suite
 script:
   - docker run -e CI=true anchalgupta1996/docker-react npm run test
+
+# To Deploy our Application to AWS
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  # Docker-env.63r3qk9mjp.us-east-2.elasticbeanstalk.com
+  region: "us-east-2"
+  # All Applications > docker > Docker-env
+  app: "docker"
+  env: "Docker-env"
+  # Services << S3 << Search with region (us-east-2) << Click it << Bucket Name
+  bucket_name: "elasticbeanstalk-us-east-2-968530538754"
+  # By default, bucket_path = app name
+  bucket_path: "docker"
+  on:
+    branch: master
+  # Access key ID : AKIA6DAHLGEBFCOW2BX4
+  # Secret Access Key : 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
+  access_key_id: $AWS_ACCESS_KEY  
+  secret_access_key: $AWS_SECRET_KEY
