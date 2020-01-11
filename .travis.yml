@@ -1,0 +1,16 @@
+language: generic 
+
+# Super User Level Permissions
+sudo: required
+
+# Docker CLI Pre-Installed (Copy of Docker)
+services:
+  - docker
+
+# Commands to execute before the Tests are run
+before_install:
+  - docker build -t anchalgupta1996/docker-react -f Dockerfile.dev .
+
+# Commands to execute to run the Test suite
+script:
+  - docker run -e CI=true anchalgupta1996/docker-react npm run test
